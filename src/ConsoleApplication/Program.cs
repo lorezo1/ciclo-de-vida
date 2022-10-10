@@ -19,9 +19,20 @@ namespace ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+            for (int i=0; i<100; i++)
+            {
+                new Train("");
+            }
+            Console.WriteLine(Train.getCount());
+
+             for (int i=0; i<100000000; i++)
+            {
+                new Train("");
+            }
+            Console.WriteLine(Train.getCount());
+
+            //el contador no llega a 10.000.000 porque es mucha cantidad y no se está haciendo nada con esos datos
+            //por lo tanto los va borrando y da otro número
         }
     }
 }

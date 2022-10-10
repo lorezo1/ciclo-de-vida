@@ -13,11 +13,46 @@ namespace ClassLibrary
     /// </summary>
     public class Train
     {
+        private static int count = 0;
+        private string identificador;
+
+        public static void setCount(int numero)
+        {
+            Train.count = numero;
+        }
+        
+        public static int getCount()
+        {
+            return Train.count;
+        }
+
+        public void setIdentificador(string nombre)
+        {
+            identificador = nombre;
+        }
+        
+        public string getIdentificador()
+        {
+            return identificador;
+        }
         /// <summary>
         /// Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
         /// </summary>
         /// <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
         public bool IsEngineStarted { get; private set; }
+
+
+        public Train(string Id)
+        {
+            identificador = Id;
+            Train.count ++;
+        }
+
+        ~Train()
+        {
+        count--;
+        }
+
 
         /// <summary>
         /// Enciende las máquinas del tren.
